@@ -1,6 +1,7 @@
 package com.zhanglin.win_learn;
 
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -26,7 +27,9 @@ public class MainActivity extends ActionBarActivity {
         button_mainactivity_goto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                webView_mainactivity_mainweb.loadUrl(editText_mainactivity_url.getText().toString());
+                Intent intent = new Intent(MainActivity.this, com.zhanglin.win_learn.WebView.class);
+                intent.putExtra("url", editText_mainactivity_url.getText().toString());
+                MainActivity.this.startActivity(intent);
             }
         });
     }

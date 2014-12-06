@@ -1,5 +1,6 @@
 package com.zhanglin.win_learn;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,6 +13,10 @@ public class WebView extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view);
+        Intent intent = this.getIntent();
+        String url = intent.getStringExtra("url");
+        android.webkit.WebView webView_webvieactivity_view = (android.webkit.WebView)findViewById(R.id.webView_webviewactivity_view);
+        webView_webvieactivity_view.loadUrl(url);
     }
 
 
