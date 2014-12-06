@@ -1,32 +1,34 @@
 package com.zhanglin.win_learn;
 
-import android.os.Handler;
-import android.os.Message;
+
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.zhanglin.util.UploadPostUtil;
-
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
-
 
 public class MainActivity extends ActionBarActivity {
+    private EditText editText_mainactivity_url;
+    private Button button_mainactivity_goto;
+    private WebView webView_mainactivity_mainweb;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        editText_mainactivity_url = (EditText) findViewById(R.id.editText_mainActivity_url);
+        button_mainactivity_goto = (Button) findViewById(R.id.button_mainActivity_goto);
+        webView_mainactivity_mainweb = (WebView) findViewById(R.id.webView_mainActivity_mainweb);
+        editText_mainactivity_url.setText("http://");
+        button_mainactivity_goto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                webView_mainactivity_mainweb.loadUrl(editText_mainactivity_url.getText().toString());
+            }
+        });
     }
 
     @Override

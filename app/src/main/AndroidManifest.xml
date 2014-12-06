@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zhanglin.win_learn" >
+    <!-- 为测试添加 android.test.InstrumentationTestRunner -->
+    <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:label="test"
+        android:targetPackage="com.zhanglin.win_learn" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MOUNT_FORMAT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -16,17 +26,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <uses-library android:name="android.test.runner" />
 
+        <activity
+            android:name="com.zhanglin.win_learn.WebView"
+            android:label="@string/title_activity_web_view" >
+        </activity>
     </application>
-    <!-- 为测试添加 android.test.InstrumentationTestRunner -->
-    <instrumentation
-        android:name="android.test.InstrumentationTestRunner"
-        android:targetPackage="com.zhanglin.win_learn"
-        android:label="test"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.MOUNT_FORMAT_FILESYSTEMS"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
 </manifest>
