@@ -16,9 +16,7 @@ import com.zhanglin.util.UploadPostUtil;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,11 +36,11 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         editText_id = (EditText)findViewById(R.id.editText_mainActivity_id);
-        editText_username = (EditText)findViewById(R.id.editText_mainActivity_username);
+        editText_username = (EditText)findViewById(R.id.editText_mainActivity_url);
         editText_password = (EditText)findViewById(R.id.editText_mainActivity_password);
         editText_path = (EditText)findViewById(R.id.editText_mainActivity_path);
         textView_getReturnInfo = (TextView)findViewById(R.id.textView_mainActivity_getReturnInfo);
-        button_commit = (Button)findViewById(R.id.button_mainActivity_commit);
+        button_commit = (Button)findViewById(R.id.button_mainActivity_goto);
         editText_path.setText("/sdcard" + File.separatorChar + "test");
 
         final Handler handler = new Handler(){
@@ -116,7 +114,7 @@ public class MainActivity extends ActionBarActivity {
                 InputStream returnInputStream = uploadPostUtil.uploadByPost();
                 ByteArrayOutputStream write = new ByteArrayOutputStream();
                 byte[] buffer = new byte[1024];
-                int len = 0;
+                int len;
                 while((len = returnInputStream.read(buffer))!= -1) {
                     write.write(buffer, 0, len);
                 }
